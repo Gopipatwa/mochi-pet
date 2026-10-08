@@ -319,10 +319,9 @@
         avatarGrid(Shapes.STYLES.map((st) => ({ key: st.id, label: st.name, look: { style: st.id } })), (it) => state.settings.buddy.style === it.key, (it) => patch('buddy.style', it.key), { base: buddyBase }),
         h('h2', { text: 'Teasing' }),
         card([
-          { type: 'toggle', key: 'teasing.enabled', label: 'Let him tease me', hint: 'Playful only: it never blocks the mouse and you can still grab him by holding the button.' },
+          { type: 'toggle', key: 'teasing.enabled', label: 'Let him tease me', hint: 'Playful only: tongue out and cheeky lines. He never dodges or runs away from the mouse.' },
           { type: 'select', key: 'teasing.level', label: 'How cheeky', options: [['mild', 'Mild - now and then'], ['cheeky', 'Cheeky - often']], showIf: ['teasing.enabled', true] },
           { type: 'toggle', key: 'teasing.tongue', label: 'Stick his tongue out', showIf: ['teasing.enabled', true] },
-          { type: 'toggle', key: 'teasing.dodge', label: 'Dodge when I swipe at him', hint: 'If the cursor lunges at him he hops out of reach and says something smug.', showIf: ['teasing.enabled', true] },
         ]),
         h('h2', { text: 'Cheeky lines' }),
         h('div', { class: 'card pad' }, lines, h('div', { class: 'hint' }, 'One per line. He picks at random. {name} is your name.')),

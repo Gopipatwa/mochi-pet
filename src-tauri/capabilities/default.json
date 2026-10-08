@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Pet and settings windows may use events; every command is our own.",
+  "windows": ["pet", "buddy", "settings"],
+  "permissions": ["core:default"]
+}

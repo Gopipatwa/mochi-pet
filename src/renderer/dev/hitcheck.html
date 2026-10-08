@@ -1,0 +1,34 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>hit check</title></head>
+<body style="background:#000;color:#0f0;font:12px monospace;white-space:pre">
+<script src="../shared/color.js"></script>
+<script src="../shared/themes.js"></script>
+<script src="../shared/seasons.js"></script>
+<script src="../shared/accessories.js"></script>
+<script src="../shared/shapes.js"></script>
+<script src="../shared/character.js"></script>
+<script>
+/* Dev check: does the clickable area (mochi.hitTest) cover the body that is actually drawn?
+   For every shape, draw him, find which drawn pixels are NOT clickable, and which clickable points are empty. */
+const W = 340, H = 400, size = 130;
+const theme = Themes.get('dark');
+const look0 = { colorMode: 'fixed', fixedColor: '#f5a33a', customColor: '#7b61ff', rainbowSeconds: 60, cheeks: true, shadow: false, smoothness: .5, jelly: .8, shape: 'blob', style: 'neutral', eyes: 'classic', happyEyes: 'arcs' };
+const out = [];
+for (const sh of Shapes.list) {
+  const m = new Mochi();
+  m.configure({ size, look: { ...look0, shape: sh.id }, theme, outfit: [], season: null, particles: false });
+  m.cursor = { x: W / 2, y: H / 2 };
+  for (let i = 0; i < 120; i++) m.update(1 / 60);
+  const c = document.createElement('canvas'); c.width = W; c.height = H; const ctx = c.getContext('2d', { willReadFrequently: true });
+  m.draw(ctx, W, H);
+  const d = ctx.getImageData(0, 0, W, H).data;
+  let drawn = 0, drawnButNotClickable = 0, clickableButEmpty = 0, clickable = 0;
+  for (let y = 0; y < H; y += 2) for (let x = 0; x < W; x += 2) {
+    const solid = d[(y * W + x) * 4 + 3] > 200; const hit = m.hitTest(x, y);
+    if (solid) { drawn++; if (!hit) drawnButNotClickable++; }
+    if (hit) { clickable++; if (!solid) clickableButEmpty++; }
+  }
+  out.push(`${sh.id.padEnd(9)} drawn=${drawn}  NOT-grabbable=${drawnButNotClickable} (${(100 * drawnButNotClickable / drawn).toFixed(1)}%)   empty-but-grabbable=${clickableButEmpty} (${(100 * clickableButEmpty / clickable).toFixed(1)}%)   hit=${JSON.stringify({ x: Math.round(m.hit.x), y: Math.round(m.hit.y), rx: Math.round(m.hit.rx), ry: Math.round(m.hit.ry), p: m.hit.p })}`);
+}
+document.body.textContent = 'RESULT\n' + out.join('\n');
+</script></body></html>

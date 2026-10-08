@@ -418,7 +418,9 @@
       for (const p of this.parts) if (p.type === 'z' || p.type === 'heart') this.drawParticle(ctx, p);
 
       const bodyCy = feet + hop + peekDrop - R * 1.0 * sy;
-      this.hit = { x: cx, y: bodyCy, rx: R * sx + 8, ry: R * 0.95 * sy + 8, p: shape.hit };
+      // ears (cat, bear, bunny) stick up above the body: they are grabbable too
+      const ears = R * shape.topExtra * 0.5;
+      this.hit = { x: cx, y: bodyCy - ears, rx: R * sx + 8, ry: R * 0.95 * sy + 8 + ears, p: shape.hit };
     }
 
     /** Two little hands holding the window edge while he peeks over it. */
@@ -609,8 +611,9 @@
       ctx.restore();
     }
 
-    hitTest(x, y) {
-      const { x: cx, y: cy, rx, ry, p = 3 } = this.hit;
+    /** `pad` makes the target bigger, so grabbing him never needs pixel accuracy. */
+    hitTest(x, y, pad = 0) {
+      const { x: cx, y: cy, p = 3 } = this.hit; const rx = this.hit.rx + pad; const ry = this.hit.ry + pad;
       if (this.peekAmt.x > 0.3 && y > this.feetLine) return false; // that part is behind the window
       return Math.abs((x - cx) / rx) ** p + Math.abs((y - cy) / ry) ** p <= 1;
     }

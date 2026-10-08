@@ -64,8 +64,8 @@ Needs Windows 10/11 with WebView2 (already part of Windows 11 and up-to-date Win
 - It laughs when he gets dizzy or teases you, and bounces when he is poked. Size and side are adjustable.
 
 ### Teasing (playful, optional, never blocking)
-- **Tongue out with a wink**, and **cheeky remarks** in a speech bubble ("Too slow!", "You can't catch me!"). You can edit every line.
-- **Dodges** when your cursor lunges at him: he hops out of reach (but if you hold the mouse button down, you can always grab him).
+- **Tongue out with a wink**, and **cheeky remarks** in a speech bubble ("Bleh!", "I saw that."). You can edit every line.
+- He never dodges or runs from the mouse: **you can always grab him**, and he stands still while your cursor is on him.
 - Poke him too many times, or hover for a long while, and he teases you back.
 - Choose **Mild** or **Cheeky**, or switch each part off.
 
@@ -141,7 +141,7 @@ Needs [Node.js](https://nodejs.org) 20+, [Rust](https://rustup.rs) and the Visua
 npm install
 npm run dev           # run from source
 npm run build         # -> src-tauri/target/release/mochi.exe  (single exe, ~4 MB)
-npm test              # 17 Rust unit tests: reminders, meetings, .ics, settings validation, window edges, gravity
+npm test              # 19 Rust unit tests: reminders, meetings, .ics, settings validation, window edges, gravity
 npm run preview       # the pages in a normal browser with a mock backend (visual testing)
 npm run screenshots   # regenerate docs/screenshots (needs Edge or Chrome)
 ```

@@ -1,0 +1,277 @@
+{
+ "version": 1,
+ "general": {
+  "name": "Friend",
+  "petName": "Mochi",
+  "size": 130,
+  "sounds": true,
+  "volume": 0.5,
+  "startWithWindows": false,
+  "sleepAfterSec": 180,
+  "alwaysOnTop": true,
+  "lastGreetDate": "",
+  "position": null
+ },
+ "look": {
+  "colorMode": "fixed",
+  "fixedColor": "#f5a33a",
+  "customColor": "#7b61ff",
+  "rainbowSeconds": 60,
+  "cheeks": true,
+  "shadow": true,
+  "smoothness": 0.5,
+  "shape": "blob",
+  "style": "neutral",
+  "jelly": 0.8,
+  "eyes": "classic",
+  "happyEyes": "arcs"
+ },
+ "movement": {
+  "mode": "wander",
+  "speed": 90,
+  "frequency": 12,
+  "area": "all",
+  "corner": "bottomRight",
+  "locked": false,
+  "fullscreen": "hide",
+  "peek": true
+ },
+ "theme": {
+  "id": "auto"
+ },
+ "accessories": {
+  "hat": {
+   "enabled": false,
+   "color": "#3b3b4f"
+  },
+  "glasses": {
+   "enabled": false,
+   "color": "#2b2b38"
+  },
+  "bowtie": {
+   "enabled": false,
+   "color": "#ef4444"
+  },
+  "headphones": {
+   "enabled": false,
+   "color": "#6366f1"
+  },
+  "antenna": {
+   "enabled": false,
+   "color": "#f59e0b"
+  },
+  "scarf": {
+   "enabled": false,
+   "color": "#ef4444"
+  },
+  "crown": {
+   "enabled": false,
+   "color": "#fbbf24"
+  }
+ },
+ "seasonal": {
+  "mode": "auto",
+  "hemisphere": "north",
+  "particles": true,
+  "items": {
+   "santaHat": {
+    "enabled": true,
+    "color": "#dc2626"
+   },
+   "beanie": {
+    "enabled": true,
+    "color": "#3b82f6"
+   },
+   "flowerCrown": {
+    "enabled": true,
+    "color": "#f472b6"
+   },
+   "bunnyEars": {
+    "enabled": true,
+    "color": "#fbcfe8"
+   },
+   "sunglasses": {
+    "enabled": true,
+    "color": "#1f2937"
+   },
+   "strawHat": {
+    "enabled": true,
+    "color": "#e8c070"
+   },
+   "leaf": {
+    "enabled": true,
+    "color": "#ea580c"
+   },
+   "witchHat": {
+    "enabled": true,
+    "color": "#4c1d95"
+   },
+   "partyHat": {
+    "enabled": true,
+    "color": "#a855f7"
+   },
+   "hearts": {
+    "enabled": true,
+    "color": "#fb7185"
+   }
+  }
+ },
+ "greetings": {
+  "enabled": true,
+  "morning": [
+   "Good morning, {name}! ☀️",
+   "Rise and shine, {name}!",
+   "Morning! Ready for a good day?"
+  ],
+  "afternoon": [
+   "Good afternoon, {name}!",
+   "Hope your day is going well, {name}.",
+   "Afternoon! Remember to breathe."
+  ],
+  "evening": [
+   "Good evening, {name}! 🌙",
+   "Nice work today, {name}.",
+   "Evening! Time to slow down a little."
+  ],
+  "night": [
+   "It is late, {name}... maybe sleep soon?",
+   "Still up, {name}? I am here with you.",
+   "Night owl mode! Do not forget to rest."
+  ]
+ },
+ "reminders": {
+  "paused": false,
+  "dnd": false,
+  "notify": false,
+  "sound": true,
+  "activeStart": "08:00",
+  "activeEnd": "22:00",
+  "snoozeMinutes": 10,
+  "bubbleSeconds": 40,
+  "items": [
+   {
+    "id": "water",
+    "builtin": true,
+    "enabled": true,
+    "text": "Time to drink some water! 💧",
+    "type": "interval",
+    "everyMin": 60,
+    "times": [],
+    "days": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   },
+   {
+    "id": "lunch",
+    "builtin": true,
+    "enabled": true,
+    "text": "Lunch time! Go eat something nice. 🍱",
+    "type": "times",
+    "everyMin": 60,
+    "times": [
+     "12:30"
+    ],
+    "days": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   {
+    "id": "stretch",
+    "builtin": true,
+    "enabled": true,
+    "text": "Stand up and stretch for a minute. 🧘",
+    "type": "interval",
+    "everyMin": 90,
+    "times": [],
+    "days": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   },
+   {
+    "id": "eyes",
+    "builtin": true,
+    "enabled": true,
+    "text": "20-20-20: look at something 20 feet away for 20 seconds. 👀",
+    "type": "interval",
+    "everyMin": 20,
+    "times": [],
+    "days": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   },
+   {
+    "id": "posture",
+    "builtin": true,
+    "enabled": true,
+    "text": "Posture check! Shoulders back, spine tall. 🧍",
+    "type": "interval",
+    "everyMin": 45,
+    "times": [],
+    "days": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   }
+  ]
+ },
+ "meetings": {
+  "enabled": true,
+  "leadMinutes": [
+   10
+  ],
+  "alsoAtStart": true,
+  "icsPath": "",
+  "items": []
+ },
+ "buddy": {
+  "enabled": false,
+  "shape": "slime",
+  "style": "neutral",
+  "color": "#6ee06e",
+  "scale": 0.55,
+  "side": "right"
+ },
+ "teasing": {
+  "enabled": true,
+  "level": "mild",
+  "tongue": true,
+  "lines": [
+   "Bleh! 😛",
+   "Is that all you've got?",
+   "Psst... your cursor is shaking.",
+   "I saw that. 👀",
+   "Hehe, boop!",
+   "Bored? Me too.",
+   "Look at me. Look. At. Me.",
+   "Snack? 🍪",
+   "Hehe, that tickles!"
+  ]
+ }
+}

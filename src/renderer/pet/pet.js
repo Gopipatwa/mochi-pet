@@ -56,27 +56,28 @@
   }
 
   // ---- hit testing / click-through ---------------------------------------------------------------
-  let ignoring = true; let hoverBubble = false;
-  function setIgnore(v) { if (v !== ignoring) { ignoring = v; api.send('pet:ignore-mouse', v); } }
+  // The app switches click-through for the pet itself (from the real cursor position, instantly).
+  // The page only reports when the cursor is on the speech bubble, whose buttons must be clickable.
+  let hoverBubble = false;
+  function setBubbleHot(v) { if (v !== hoverBubble) { hoverBubble = v; api.send('pet:ignore-mouse', !v); } }
 
   /** Frames carry the global cursor position, so hover works even while the pet walks under a still cursor. */
   function onFrame(f) {
     mochi.setFrame(f);
     mochi.setPeek(f.peek);
     const br = bubble.classList.contains('show') ? bubble.getBoundingClientRect() : null;
-    hoverBubble = !!br && f.cx >= br.left && f.cx <= br.right && f.cy >= br.top && f.cy <= br.bottom;
+    setBubbleHot(!!br && f.cx >= br.left && f.cx <= br.right && f.cy >= br.top && f.cy <= br.bottom);
     const overPet = mochi.hitTest(f.cx, f.cy);
     mochi.setHover(overPet && !pressed);
     if (!isBuddy) {
       const now = performance.now();
       if (overPet && !pressed && !runtime.sleeping) { if (!hoverSince) hoverSince = now; else if (now - hoverSince > 5000) { hoverSince = 0; tease(false); } } else hoverSince = 0;
     }
-    if (!pressed) setIgnore(!(overPet || hoverBubble));
   }
 
   let pressed = null; let dragStarted = false;
   document.addEventListener('pointerdown', (e) => {
-    if (e.button !== 0 || e.target.closest('#bubble') || !mochi.hitTest(e.clientX, e.clientY)) return;
+    if (e.button !== 0 || e.target.closest('#bubble') || !mochi.hitTest(e.clientX, e.clientY, 22)) return;
     pressed = { x: e.screenX, y: e.screenY };
     dragStarted = false;
     document.body.setPointerCapture(e.pointerId);
@@ -93,7 +94,7 @@
   });
   document.addEventListener('contextmenu', (e) => {
     e.preventDefault();
-    if (!isBuddy && mochi.hitTest(e.clientX, e.clientY)) api.send('pet:context-menu');
+    if (!isBuddy && mochi.hitTest(e.clientX, e.clientY, 22)) api.send('pet:context-menu');
   });
 
   // ---- clicks, emotes and teasing ----------------------------------------------------------------
