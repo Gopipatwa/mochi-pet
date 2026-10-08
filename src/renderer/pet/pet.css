@@ -1,0 +1,40 @@
+html, body {
+  margin: 0; width: 100%; height: 100%; overflow: hidden;
+  background: transparent; user-select: none; -webkit-user-select: none; cursor: default;
+}
+canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+#bubble {
+  position: absolute; left: 50%; bottom: 200px;
+  width: max-content; max-width: min(300px, calc(100% - 20px)); box-sizing: border-box;
+  padding: 10px 14px 11px;
+  background: var(--bubble-bg, #fff); color: var(--bubble-text, #222);
+  border: var(--bubble-bw, 1px) solid var(--bubble-border, #ddd);
+  border-radius: var(--bubble-radius, 18px); box-shadow: var(--bubble-shadow, 0 6px 22px rgba(0,0,0,.25));
+  font: 600 13.5px/1.38 var(--bubble-font, "Segoe UI", sans-serif);
+  text-align: center; overflow-wrap: anywhere;
+  transform: translateX(-50%) translateY(10px) scale(.55); transform-origin: 50% 100%;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: transform .42s cubic-bezier(.34, 1.7, .6, 1), opacity .18s ease, visibility 0s .4s;
+}
+#bubble.show {
+  transform: translateX(-50%) translateY(0) scale(1); opacity: 1; visibility: visible; pointer-events: auto;
+  transition: transform .42s cubic-bezier(.34, 1.7, .6, 1), opacity .18s ease, visibility 0s;
+}
+#bubble::after {
+  content: ""; position: absolute; left: 50%; bottom: -7px; width: 12px; height: 12px; margin-left: -6px;
+  background: var(--bubble-bg, #fff); transform: rotate(45deg);
+  border-right: var(--bubble-bw, 1px) solid var(--bubble-border, #ddd); border-bottom: var(--bubble-bw, 1px) solid var(--bubble-border, #ddd);
+  border-bottom-right-radius: 3px;
+}
+.actions { display: flex; gap: 8px; justify-content: center; margin-top: 9px; }
+.actions[hidden] { display: none; }
+.actions button {
+  font: 600 12px/1 var(--bubble-font, "Segoe UI", sans-serif); padding: 6px 12px; cursor: pointer;
+  color: var(--bubble-text, #222); background: transparent;
+  border: var(--bubble-bw, 1px) solid var(--bubble-border, #ccc); border-radius: calc(var(--bubble-radius, 18px) * .6);
+  transition: transform .12s, background .12s;
+}
+.actions button:hover { background: rgba(127, 127, 127, .15); transform: translateY(-1px); }
+.actions button:active { transform: scale(.95); }
+.actions button.primary { background: var(--accent, #6c5ce7); color: var(--accent-text, #fff); border-color: transparent; }

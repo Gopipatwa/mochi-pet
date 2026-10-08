@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Gallery</title>
+  <style>
+    html, body { margin: 0; background: #14161c; color: #e8eaf2; font: 14px "Segoe UI", system-ui, sans-serif; }
+    body { padding: 22px 26px; }
+    h1 { font-size: 20px; margin: 0 0 14px; letter-spacing: .01em; }
+    .grid { display: grid; gap: 14px; }
+    .card { background: #1c1f28; border: 1px solid #2d3242; border-radius: 16px; padding: 10px 8px 12px; text-align: center; position: relative; overflow: hidden; }
+    .card canvas { width: 100%; display: block; }
+    .card b { display: block; font-size: 13px; margin-top: 2px; }
+    .card small { color: #8f96ab; font-size: 11.5px; }
+    .edge { position: absolute; left: 12%; right: 12%; height: 15px; background: #2a2f3f; border: 1px solid #3a4054; border-radius: 6px 6px 0 0; }
+    .edge i { position: absolute; left: 8px; top: 3px; width: 10px; height: 10px; border-radius: 50%; background: #ef4444; box-shadow: 16px 0 #fbbf24, 32px 0 #4ade80; }
+    .bubble { display: inline-block; margin: 0 0 4px; padding: 6px 12px; font: 600 12.5px var(--bubble-font); background: var(--bubble-bg); color: var(--bubble-text); border: var(--bubble-bw) solid var(--bubble-border); border-radius: var(--bubble-radius); box-shadow: var(--bubble-shadow); }
+    .desk { position: relative; height: 330px; border-radius: 18px; overflow: hidden; background: linear-gradient(160deg, #1d2a4a, #2c1f4a 55%, #1a2b3c); border: 1px solid #2d3242; }
+    .desk canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .desk .bar { position: absolute; left: 0; right: 0; bottom: 0; height: 34px; background: rgba(20, 22, 30, .92); border-top: 1px solid #3a4054; }
+    .desk .win { position: absolute; left: 12%; top: 128px; width: 38%; height: 220px; background: #22263a; border: 1px solid #3a4054; border-radius: 10px 10px 0 0; }
+    .desk .win i { position: absolute; left: 10px; top: 9px; width: 10px; height: 10px; border-radius: 50%; background: #ef4444; box-shadow: 16px 0 #fbbf24, 32px 0 #4ade80; }
+  </style>
+</head>
+<body>
+  <script src="../shared/color.js"></script>
+  <script src="../shared/themes.js"></script>
+  <script src="../shared/seasons.js"></script>
+  <script src="../shared/accessories.js"></script>
+  <script src="../shared/shapes.js"></script>
+  <script src="../shared/character.js"></script>
+  <script src="gallery.js"></script>
+</body>
+</html>

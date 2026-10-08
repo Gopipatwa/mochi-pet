@@ -1,0 +1,18 @@
+{
+  "name": "mochi-pet",
+  "version": "1.0.0",
+  "description": "Mochi - a soft, squishy desktop pet for Windows (Tauri)",
+  "author": "Gopi Patwa",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "tauri dev",
+    "build": "tauri build --no-bundle",
+    "test": "cargo test --manifest-path src-tauri/Cargo.toml",
+    "preview": "node scripts/dev-server.js",
+    "screenshots": "node scripts/screenshots.js"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "2.12.1"
+  }
+}

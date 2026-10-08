@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings</title>
+  <link rel="stylesheet" href="../settings/settings.css">
+</head>
+<body>
+  <div class="app">
+    <nav aria-label="Settings sections">
+      <div class="brand"><canvas id="brand-canvas" width="60" height="60" aria-hidden="true"></canvas><div><div class="brand-name" id="brand-name">Mochi</div><div class="brand-sub">Settings</div></div></div>
+      <div id="tabs" role="tablist"></div>
+      <div class="nav-foot">
+        <button type="button" class="chip-toggle" id="q-paused"></button>
+        <button type="button" class="chip-toggle" id="q-dnd"></button>
+        <div class="ver" id="ver"></div>
+      </div>
+    </nav>
+    <main id="main" tabindex="-1"></main>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="../shared/bridge.js"></script>
+  <script src="../shared/color.js"></script>
+  <script src="../shared/themes.js"></script>
+  <script src="../shared/seasons.js"></script>
+  <script src="../shared/accessories.js"></script>
+  <script src="../shared/shapes.js"></script>
+  <script src="../shared/character.js"></script>
+  <script src="mock-api.js"></script><script src="../settings/settings.js"></script>
+</body>
+</html>
